@@ -507,3 +507,8 @@ func freeCGeoPolygon(cgp *C.GeoPolygon) {
 	C.free(unsafe.Pointer(cgp.holes))
 	cgp.holes = nil
 }
+
+// Distance implements the C function `h3Distance`.
+func Distance(origin H3Index, h3 H3Index) int {
+	return int(C.h3Distance(origin, h3))
+}

@@ -498,3 +498,13 @@ func max(x, y int) int {
 	}
 	return y
 }
+
+func TestDistance(t *testing.T) {
+	t.Parallel()
+	for k := 0; k < 4; k++ {
+		neighbours, _ := HexRing(validH3Index, k)
+		for _, n := range neighbours {
+			assert.Equal(t, k, Distance(validH3Index, n))
+		}
+	}
+}
